@@ -1,0 +1,3 @@
+CREATE USER puppetdb WITH PASSWORD 'puppetdb';
+CREATE DATABASE puppetdb;
+GRANT ALL PRIVILEGES ON DATABASE puppetdb TO puppetdb;

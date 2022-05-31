@@ -15,3 +15,28 @@ services:
     restart: always
     ports:
       - 8080:8080
+  puppet:
+    image: puppet/puppetserver:latest
+    container_name: puppet
+    restart: always
+    volumes:
+      - ./puppetserver/puppetcode:/etc/puppetlabs/code/
+      - ./puppetserver/puppetca:/etc/puppetlabs/puppetserver/ca
+      - ./puppetserver/puppetconfig:/etc/puppetlabs/puppet/
+      - ./puppetserver/puppetdata:/opt/puppetlabs/server/data/puppetserver/
+    ports:
+      - 8140:8140
+      - 8170:8170
+  puppetdb:
+    image: puppet/puppetdb:latest
+    container_name: puppetdb
+    restart: always
+    ports:
+      - 32771:8080
+
+volumes:
+  puppetcode:
+  puppetconfig:
+  puppetca:
+  puppetdata:
+  postgres:
