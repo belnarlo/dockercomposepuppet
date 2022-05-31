@@ -1,0 +1,3 @@
+[submodule "puppetcode"]
+	path = puppetcode
+	url = git@github.com:belnarlo/homepuppet.git
